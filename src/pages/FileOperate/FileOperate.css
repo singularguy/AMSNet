@@ -1,0 +1,979 @@
+.custom-file-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 2px dashed #999;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #666;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-file-button:hover {
+  background-color: #e0e0e0;
+  border-color: #666;
+}
+
+.custom-file-button::before {
+  content: "📁";
+  margin-right: 10px;
+}
+
+.custom-file-button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hidden-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+/* 保存图片按钮样式 */
+.save-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50; color: #FFFFFF; font-size: 16px; font-weight: bold; font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 删除图片按钮样式 */
+.delete-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #F44336;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 撤回按钮样式 */
+.undo-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFC107;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 撤回 JSON 绘制框按钮样式 */
+.clear-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFC107;
+  color: #FFFFFF; font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 分析 JSON 按钮样式 */
+.analyze-json-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/*// save-to-local-button*/
+.save-to-local-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* add-tag-button */
+.add-tag-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 最大化 JSON 按钮样式 */
+.maximize-json-button {
+  background: transparent; /* 设置背景为透明 */
+  border: none; /* 去除边框 */
+  color: #000; /* 设置文字颜色为白色 */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* 添加白色半透明文字阴影，增加晶莹感 */
+  cursor: pointer; /* 设置鼠标指针为手型 */
+  padding: 5px 8px; /* 调整内边距 */
+  border-radius: 5px; /* 添加圆角 */
+  transition: all 0.3s ease; /* 添加过渡效果，使交互更平滑 */
+}
+
+.maximize-json-button:hover {
+  background: rgba(255, 255, 255, 0.2); /* 鼠标悬停时添加半透明背景 */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 增强文字阴影效果 */
+}
+/* 选择框按钮样式 */
+.select-button.highlighted {
+  border: 2px solid blue; /* 可以根据需要调整高亮的边框样式 */
+}
+.select-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/*撤回染色按钮样式*/
+.undo-stain-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 填充选中框按钮样式 */
+.fill-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* JSON 输入框样式 */
+.json-input {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: left;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #CCCCCC;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 200px;    /* 宽度 */
+  height: 40px;    /* 高度 */
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: text;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 输入标签文本框样式*/
+.tag-input {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: left;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #CCCCCC;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 200px;    /* 宽度 */
+  height: 40px;    /* 高度 */
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: text;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/*颜色选择框样式*/
+.custom-color-input {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: left;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #CCCCCC;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 100px;    /* 宽度 */
+  height: 40px;    /* 高度 */
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: text;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 自定义canvas画布画框颜色按钮 */
+.draw-custom-shape-button {
+  /* 背景颜色、文本颜色、字体大小、字体粗细、字体样式 */
+  background-color: #FFC107;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  /* 文本装饰、文本对齐、行高、字符间距、文本转换 */
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  /* 单词间距、处理空白符、外边距、内边距、边框 */
+  word-spacing: normal;
+  white-space: normal;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  /* 边框圆角、宽度、高度、最小宽度、最小高度 */
+  border-radius: 4px;
+  width: 120px;
+  height: 40px;
+  min-width: auto;
+  min-height: auto;
+  /* 最大宽度、最大高度、显示类型、定位类型、顶部位置 */
+  max-width: none;
+  max-height: none;
+  display: inline-block;
+  position: static;
+  top: auto;
+  /* 右侧位置、底部位置、左侧位置、层叠上下文中的层叠级别、溢出内容处理方式 */
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  overflow: visible;
+  /* 鼠标光标样式、不透明度、阴影效果、过渡效果 */
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dropdown {
+  padding: 5px;
+  backgroundColor: #f0f0f0;
+}
+
+.color-option {
+  padding: 3px;
+  cursor: pointer;
+}
+/*不同元件颜色对应*/
+.port-option {
+  background-color: #007FFF;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.port-option:hover {
+  background-color: #0066CC;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.resistor-option {
+  background-color: #00FF00;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resistor-option:hover {
+  background-color: #00CC00;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.capacitor-option {
+  background-color: #FFA500;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capacitor-option:hover {
+  background-color: #FF9900;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.current-option {
+  background-color: #800080;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.current-option:hover {
+  background-color: #700070;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.voltage-option {
+  background-color: #FF0000;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.voltage-option:hover {
+  background-color: #E60000;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nmos-option {
+  background-color: #FFFF00;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nmos-option:hover {
+  background-color: #E6E600;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*新增的类别对应按钮样式*/
+.newcategory1-option {
+  background-color: var(--category-color);
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newcategory1-option:hover {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*添加类别按钮样式*/
+.add-category-button {
+  /*浅绿色*/
+  background-color: #00FF00;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-category-button:hover {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*删除类别按钮样式*/
+.remove-category-button {
+  /*浅红色*/
+  background-color: #FF0000;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.remove-category-button:hover {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*不同tag颜色对应*/
+.tag1-option {
+  background-color: #FF0000;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tag1-option:hover {
+  background-color: #E60000;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag2-option {
+  background-color: #00FF00;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tag2-option:hover {
+  background-color: #00CC00;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag3-option {
+  background-color: #0000FF;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tag3-option:hover {
+  background-color: #0000CC;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.newtag1-option {
+  background-color: var(--tag-color);
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newtag1-option:hover {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*添加tag按钮样式*/
+.add-tag-button {
+  /*浅绿色*/
+  background-color: #00FF00;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000; /* 设置字体颜色为黑色 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-width: 4px;
+  border-color: #000000;
+
+}
+
+.add-tag-button:hover {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*删除tag按钮样式*/
+.remove-tag-button {
+  /*浅红色*/
+  background-color: #FF0000;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.remove-tag-button:hover {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*颜色下拉框的样式*/
+.dropdown-float {
+  /* 移除 position: absolute; 如果不需要绝对定位可以这样做 */
+  bottom: 150%; /* 将元素放置在上方 */
+  left: 50%; /* 将元素水平居中 */
+  transform: translateX(0%); /* 使元素在水平方向上居中对齐 */
+  background-color: transparent; /* 背景色 */
+  /*border: 1px solid #ccc; !* 边框 *!*/
+  padding: 11px; /* 内边距 */
+  z-index: 100; /* 层叠顺序 */
+  width: auto; /* 设置宽度，默认为 auto，可根据需要修改 */
+  height: auto; /* 设置高度，默认为 auto，可根据需要修改 */
+  /* 可以通过其他类或内联样式设置具体的宽度和高度 */
+}
